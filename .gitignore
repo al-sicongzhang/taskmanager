@@ -1,0 +1,35 @@
+# =====================
+# Java / Maven Projects
+# =====================
+
+# Maven build output directory
+/target/
+
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# =====================
+# IntelliJ IDEA
+# =====================
+.idea/
+*.iml
+
+# =====================
+# OS-generated files
+# =====================
+.DS_Store
+Thumbs.db
+
+# =====================
+# Maven Wrapper
+# =====================
+
+# Ignore the Maven wrapper JAR (can be regenerated)
+.mvn/wrapper/maven-wrapper.jar
+
+# But keep the wrapper scripts
+!mvnw
+!mvnw.cmd
