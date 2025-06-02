@@ -10,11 +10,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class AuthService {
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private JwtService jwtService;
 
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
@@ -44,7 +47,7 @@ public class AuthService {
             return new AuthResponse("login failed: wrong password", null);
         }
 
-        String token = "fake-jwt-token";
+        String token = jwtService.generateToken(user.getEmail());
         return new AuthResponse(token, user.getUsername());
     }
 }
