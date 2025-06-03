@@ -25,6 +25,12 @@ public class SecurityConfig {
         return http
                 .csrf(csrf -> csrf.disable()) // Disable CSRF for APIs
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(
+                                "/swagger-ui/**",
+                                "/v3/api-docs/**",
+                                "/swagger-ui.html",
+                                "/v3/api-docs.yaml"
+                        ).permitAll()
                         .requestMatchers("/api/auth/**").permitAll() // Allow register/login
                         .anyRequest().authenticated() // Everything else requires authentication
                 )
